@@ -1,57 +1,36 @@
-<html>
-<head>
-<title>Game.java</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.s0 { color: #cf8e6d;}
-.s1 { color: #bcbec4;}
-.s2 { color: #bcbec4;}
-.s3 { color: #6aab73;}
-.s4 { color: #2aacb8;}
-</style>
-</head>
-<body bgcolor="#1e1f22">
-<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
-<tr><td><center>
-<font face="Arial, Helvetica" color="#000000">
-Game.java</font>
-</center></td></tr></table>
-<pre><span class="s0">package </span><span class="s1">Blackjack</span><span class="s2">;</span>
+package Blackjack;
 
-<span class="s0">public class </span><span class="s1">Game </span><span class="s2">{</span>
-    <span class="s1">Player p1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Player</span><span class="s2">(</span><span class="s3">&quot;Cláudia&quot;</span><span class="s2">);</span>
-    <span class="s1">Player p2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Player</span><span class="s2">(</span><span class="s3">&quot;Tiago&quot;</span><span class="s2">);</span>
+public class Game {
+    Player p1 = new Player("Cláudia");
+    Player p2 = new Player("Tiago");
 
 
-    <span class="s0">public </span><span class="s1">Game</span><span class="s2">() {</span>
-    <span class="s2">}</span>
+    public Game() {
+    }
 
-    <span class="s0">public void </span><span class="s1">start</span><span class="s2">() {</span>
-        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Game starts&quot;</span><span class="s2">);</span>
-    <span class="s2">}</span>
+    public void start() {
+        System.out.println("Game starts");
+    }
 
 
-    <span class="s0">public void </span><span class="s1">determineWinner</span><span class="s2">() {</span>
-        <span class="s1">p1</span><span class="s2">.</span><span class="s1">pickCard</span><span class="s2">();</span>
-        <span class="s1">p2</span><span class="s2">.</span><span class="s1">pickCard</span><span class="s2">();</span>
-        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s4">100</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
-            <span class="s0">if </span><span class="s2">(</span><span class="s1">p1</span><span class="s2">.</span><span class="s1">getSum</span><span class="s2">() == </span><span class="s4">21</span><span class="s2">) {</span>
-                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Player &quot; </span><span class="s2">+ </span><span class="s1">p1</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">() + </span><span class="s3">&quot; wins&quot;</span><span class="s2">);</span>
-            <span class="s2">}</span>
-            <span class="s0">if </span><span class="s2">(</span><span class="s1">p1</span><span class="s2">.</span><span class="s1">getSum</span><span class="s2">()&gt;</span><span class="s4">21</span><span class="s2">|| </span><span class="s1">p2</span><span class="s2">.</span><span class="s1">getSum</span><span class="s2">()&gt;</span><span class="s4">21</span><span class="s2">){</span>
-                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Ups. Looks like someone just got more than 21. Start again.&quot;</span><span class="s2">);</span>
-            <span class="s2">}</span>
-            <span class="s0">if </span><span class="s2">(</span><span class="s1">p2</span><span class="s2">.</span><span class="s1">getSum</span><span class="s2">() == </span><span class="s4">21</span><span class="s2">) {</span>
-                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Player &quot; </span><span class="s2">+ </span><span class="s1">p2</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">() + </span><span class="s3">&quot; wins!&quot;</span><span class="s2">);</span>
-            <span class="s2">}</span>
-            <span class="s0">if </span><span class="s2">(</span><span class="s1">p1</span><span class="s2">.</span><span class="s1">getSum</span><span class="s2">() == </span><span class="s1">p2</span><span class="s2">.</span><span class="s1">getSum</span><span class="s2">()) {</span>
-                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Nobody wins. It's a tie!&quot;</span><span class="s2">);</span>
-            <span class="s2">}</span><span class="s0">else</span><span class="s2">{</span>
-                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Nobody won. Play again&quot;</span><span class="s2">);</span>
-            <span class="s2">}</span>
-        <span class="s2">}</span>
-    <span class="s2">}</span>
-<span class="s2">}</span>
-</pre>
-</body>
-</html>
+    public void determineWinner() {
+        p1.pickCard();
+        p2.pickCard();
+        for (int i = 0; i < 100; i++) {
+            if (p1.getSum() == 21) {
+                System.out.println("Player " + p1.getName() + " wins");
+            }
+            if (p1.getSum()>21|| p2.getSum()>21){
+                System.out.println("Ups. Looks like someone just got more than 21. Start again.");
+            }
+            if (p2.getSum() == 21) {
+                System.out.println("Player " + p2.getName() + " wins!");
+            }
+            if (p1.getSum() == p2.getSum()) {
+                System.out.println("Nobody wins. It's a tie!");
+            }else{
+                System.out.println("Nobody won. Play again");
+            }
+        }
+    }
+}
